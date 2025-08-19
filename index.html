@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-cloud-sun"></i> Weather Forecast</h1>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Enter city name..." spellcheck="false">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+                <button id="location-btn"><i class="fas fa-map-marker-alt"></i></button>
+            </div>
+        </header>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <!-- Weather Cards Container -->
+        <div class="weather-grid" id="weather-grid">
+            <!-- Main Weather Card -->
+            <div class="weather-card main-card">
+                <div class="weather-header">
+                    <div class="location-info">
+                        <h2 id="city-name">--</h2>
+                        <p id="date-time">--</p>
+                    </div>
+                    <div class="weather-icon-container">
+                        <img id="weather-icon" src="clear.png" alt="Weather">
+                    </div>
+                </div>
+                
+                <div class="temperature-section">
+                    <h1 id="temperature">--°C</h1>
+                    <p id="feels-like">Feels like --°C</p>
+                    <p id="description">--</p>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <div>
+                            <span id="humidity">--%</span>
+                            <label>Humidity</label>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <div>
+                            <span id="wind-speed">-- km/h</span>
+                            <label>Wind Speed</label>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-compress-alt"></i>
+                        <div>
+                            <span id="pressure">-- hPa</span>
+                            <label>Pressure</label>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-cloud-rain"></i>
+                        <div>
+                            <span id="precipitation">-- mm</span>
+                            <label>Precipitation</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Air Quality Card -->
+            <div class="weather-card air-quality-card">
+                <h3><i class="fas fa-lungs"></i> Air Quality</h3>
+                <div class="aqi-display">
+                    <div class="aqi-circle" id="aqi-circle">
+                        <span id="aqi-value">--</span>
+                        <small>AQI</small>
+                    </div>
+                    <div class="aqi-info">
+                        <p id="aqi-status">--</p>
+                        <p id="aqi-description">--</p>
+                    </div>
+                </div>
+                <div class="air-details">
+                    <div class="air-item">
+                        <i class="fas fa-smog"></i>
+                        <span>PM2.5: <span id="pm25">--</span> μg/m³</span>
+                    </div>
+                    <div class="air-item">
+                        <i class="fas fa-cloud"></i>
+                        <span>PM10: <span id="pm10">--</span> μg/m³</span>
+                    </div>
+                    <div class="air-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>O₃: <span id="o3">--</span> μg/m³</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forecast Card -->
+            <div class="weather-card forecast-card">
+                <h3><i class="fas fa-calendar-alt"></i> 5-Day Forecast</h3>
+                <div class="forecast-container" id="forecast-container">
+                    <!-- Forecast items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p id="error-text">Unable to fetch weather data. Please try again.</p>
+            <button onclick="hideError()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
